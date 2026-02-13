@@ -38,7 +38,7 @@ function Auth(){
                     <div>
                         <input type="email" placeholder="Email" className="border-2 border-gray-300 rounded-lg p-3 w-full focus:outline-none focus:ring-2 focus:ring-purple-300" value={email} onChange={(e) => setEmail(e.target.value)} />
                         <input type="email" placeholder="Password" className="border-2 border-gray-300 rounded-lg p-3 w-full focus:outline-none focus:ring-2 focus:ring-purple-300" value={password} onChange={(e) => setPassword(e.target.value)} />
-                        <button onClick={handleSignup} className="bg-black text-white w-full rounded-full">Login</button>
+                        <button onClick={handleLogin} className="bg-black text-white w-full rounded-full">Login</button>
                     </div>
                 </div>
             </div>
