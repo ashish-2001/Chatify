@@ -5,3 +5,7 @@ const apiClient = axios.create({
     baseURL: HOST
 });
 
+export {
+    apiClient
+}
+
