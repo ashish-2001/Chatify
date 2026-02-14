@@ -1,7 +1,7 @@
 import toast from "react-hot-toast";
 import { useState } from "react";
 import { apiClient } from "../../lib/api-clients.js";
-import { SIGNUP_ROUTE } from "../../utils/constants";
+import { LOGIN_ROUTE, SIGNUP_ROUTE } from "../../utils/constants";
 
 function Auth(){
     const [email, setEmail] = useState('');
@@ -23,8 +23,29 @@ function Auth(){
         }
         return true;
     }
-    const handleLogin = async() => {
 
+    const validateLogin = () => {
+        if(!email.length){
+            toast.error("Email is required!");
+        }
+
+        if(!password.length){
+            toast.error("Password is required!")
+        }
+
+        return true;
+    }
+
+    const handleLogin = async() => {
+        if(validateLogin()){
+            const response = await apiClient.post(LOGIN_ROUTE, {
+                email,
+                password
+            }, {
+                withCredentials: true
+            })
+            console.log({ response });
+        }
     }
 
     const handleSignup = async() => {
