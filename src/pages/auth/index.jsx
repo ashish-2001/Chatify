@@ -1,3 +1,4 @@
+import toast from "react-hot-toast";
 import { useState } from "react";
 
 function Auth(){
@@ -5,12 +6,21 @@ function Auth(){
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
+    const validateSignup = () => {
+        if(!email.length){
+            toast.error("Email is required!");
+            return false;
+        }
+        return true;
+    }
     const handleLogin = async() => {
 
     }
 
     const handleSignup = async() => {
-
+        if(validateSignup()){
+            alert("Done")
+        }
     }
 
     return(
