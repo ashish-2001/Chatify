@@ -27,7 +27,7 @@ function Auth(){
 
     const handleSignup = async() => {
         if(validateSignup()){
-            alert("Done")
+            const response = await apiClient
         }
     }
 
