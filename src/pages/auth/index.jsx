@@ -16,7 +16,7 @@ function Auth(){
             return false;
         }
         if(password !== confirmPassword){
-            toast.error("Passwords do not match!")
+            toast.error("Password and confirm password does not match!")
             return false;
         }
         return true;
