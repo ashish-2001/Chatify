@@ -32,8 +32,10 @@ function Auth(){
             const response = await apiClient.post(SIGNUP_ROUTE, {
                 email,
                 password
+            }, {
+                withCredentials: true
             })
-            console.log(response);
+            console.log({response});
         }
     }
 
