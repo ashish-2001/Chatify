@@ -1,5 +1,7 @@
 import toast from "react-hot-toast";
 import { useState } from "react";
+import { apiClient } from "../../lib/api-clients.js";
+import { SIGNUP_ROUTE } from "../../utils/constants";
 
 function Auth(){
     const [email, setEmail] = useState('');
@@ -27,7 +29,11 @@ function Auth(){
 
     const handleSignup = async() => {
         if(validateSignup()){
-            const response = await apiClient
+            const response = await apiClient.post(SIGNUP_ROUTE, {
+                email,
+                password
+            })
+            console.log(response);
         }
     }
 
