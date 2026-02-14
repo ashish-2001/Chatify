@@ -2,8 +2,10 @@ import toast from "react-hot-toast";
 import { useState } from "react";
 import { apiClient } from "../../lib/api-clients.js";
 import { LOGIN_ROUTE, SIGNUP_ROUTE } from "../../utils/constants";
+import { useNavigate } from "react-router-dom";
 
 function Auth(){
+    const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
@@ -43,8 +45,11 @@ function Auth(){
                 password
             }, {
                 withCredentials: true
-            })
-            console.log({ response });
+            });
+
+            if(response.status === 200){
+                navigate("/profile")
+            };
         }
     }
 
@@ -56,7 +61,9 @@ function Auth(){
             }, {
                 withCredentials: true
             })
-            console.log({ response });
+            if(response.status === 201){
+                navigate("/profile");
+            }
         }
     }
 
