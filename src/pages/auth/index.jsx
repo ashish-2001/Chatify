@@ -47,9 +47,13 @@ function Auth(){
                 withCredentials: true
             });
 
-            if(response.status === 200){
-                navigate("/profile")
-            };
+            if(response.data.user.id){
+                if(response.data.user.profileSetup){
+                    navigate("/chat")
+                } else{
+                    navigate("/profile");
+                }
+            }
         }
     }
 
@@ -75,7 +79,9 @@ function Auth(){
                         <div className="flex justify-center items-center">
                             <h1 className="text-3xl font-bold md:text-6xl">Welcome</h1>
                         </div>
-                        <p className="font-medium text-center">Fill in the details to get started with the best chat app!</p>
+                        <p className="font-medium text-center">
+                            Fill in the details to get started with the best chat app!
+                        </p>
                     </div>
                     <div className="flex items-center justify-center w-full gap-4">
                         <button className="bg-transparent text-opacity-90 border-black border-b-2 rounded-none hover:border-b-purple-300 p-3 transition-all duration-300">Login</button>
