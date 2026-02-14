@@ -11,6 +11,14 @@ function Auth(){
             toast.error("Email is required!");
             return false;
         }
+        if(!password.length){
+            toast.error("Password is required!")
+            return false;
+        }
+        if(password !== confirmPassword){
+            toast.error("Passwords do not match!")
+            return false;
+        }
         return true;
     }
     const handleLogin = async() => {
