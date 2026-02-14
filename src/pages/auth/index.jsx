@@ -35,7 +35,7 @@ function Auth(){
             }, {
                 withCredentials: true
             })
-            console.log({response});
+            console.log({ response });
         }
     }
 
