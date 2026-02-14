@@ -17,6 +17,18 @@ const userSchema = new mongoose.Schema({
     lastName: {
         type: String,
         required: true
+    },
+    image: {
+        type: String,
+        required: false
+    },
+    color: {
+        type: Number,
+        required: false
+    },
+    profileSetup: {
+        type: Boolean,
+        default: false
     }
 });
 
